@@ -3,43 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Custom Nitro Type Theme Generator</title>
+  <title>Theme Customizer</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <div id="themeCustomizer">
-    <h1>Custom Theme Generator</h1>
+  <div class="container">
+    <h1>Theme Customizer</h1>
+    <form id="theme-form">
+      <div class="form-group">
+        <label for="background-image">Background Image URL</label>
+        <input type="url" id="background-image" placeholder="Enter image URL for background">
+      </div>
 
-    <!-- Form for customizing settings -->
-    <form id="themeForm">
-      <label for="leagueBackgroundToggle">Use Transparent League Page:</label>
-      <input type="checkbox" id="leagueBackgroundToggle" name="leagueBackgroundToggle"><br>
+      <div class="form-group">
+        <label for="profile-bg-image">Profile Background Image URL</label>
+        <input type="url" id="profile-bg-image" placeholder="Enter profile background image URL">
+      </div>
 
-      <label for="garageBackgroundToggle">Use Transparent Garage:</label>
-      <input type="checkbox" id="garageBackgroundToggle" name="garageBackgroundToggle"><br>
+      <div class="form-group">
+        <label for="profile-title-color">Profile Title Color</label>
+        <input type="text" id="profile-title-color" placeholder="Enter profile title color (e.g., #0818ff)">
+      </div>
 
-      <!-- Image Search Fields -->
-      <label for="imageSearch">Search for an image for League or Garage:</label>
-      <input type="text" id="imageSearch" placeholder="Search for background images..."><br>
-      <button type="button" onclick="searchImages()">Search Unsplash</button>
+      <div class="form-group">
+        <label for="profile-body-color">Profile Body Color</label>
+        <input type="text" id="profile-body-color" placeholder="Enter profile body color (e.g., #b108ff)">
+      </div>
 
-      <h3>Select an Image</h3>
-      <div id="imageResults"></div>
-      
-      <label for="imageChoice">Choose which section to apply the image to:</label>
-      <select id="imageChoice">
-        <option value="league">League Background</option>
-        <option value="garage">Garage Background</option>
-      </select>
+      <div class="form-group">
+        <label for="button-bg-color">Button Background Color</label>
+        <input type="text" id="button-bg-color" placeholder="Enter button background color (e.g., #0c0c0c)">
+      </div>
 
-      <button type="button" onclick="generateTheme()">Generate Theme</button>
+      <div class="form-group">
+        <label for="button-text-color">Button Text Color</label>
+        <input type="text" id="button-text-color" placeholder="Enter button text color (e.g., #ffffff)">
+      </div>
+
+      <div class="form-group">
+        <label for="transparent-bg">Enable Transparent Background</label>
+        <input type="checkbox" id="transparent-bg">
+      </div>
+
+      <div class="form-group">
+        <label for="racing-text">Enable Racing Text Effect</label>
+        <input type="checkbox" id="racing-text">
+      </div>
+
+      <div class="form-group">
+        <label for="font-selection">Select Font</label>
+        <select id="font-selection">
+          <option value="Arial">Arial</option>
+          <option value="Verdana">Verdana</option>
+          <option value="Courier New">Courier New</option>
+          <option value="Comic Sans MS">Comic Sans MS</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Trebuchet MS">Trebuchet MS</option>
+          <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+          <option value="Tahoma">Tahoma</option>
+          <option value="Impact">Impact</option>
+        </select>
+      </div>
+
+      <button type="button" id="generate-theme">Generate Theme</button>
     </form>
 
-    <h2>Generated CSS:</h2>
-    <textarea id="generatedCss" rows="10" cols="50" readonly></textarea>
+    <div class="output-box" id="output-box">
+      <h2>Generated Theme</h2>
+      <div id="generated-theme"></div>
+      <a href="#" id="download-link" style="display:none;">Download Theme CSS</a>
+    </div>
   </div>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
