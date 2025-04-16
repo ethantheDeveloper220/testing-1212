@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Nitro Type Theme Generator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <div id="themeCustomizer">
+    <h1>Custom Theme Generator</h1>
+
+    <!-- Form for customizing settings -->
+    <form id="themeForm">
+      <label for="leagueBackgroundToggle">Use Transparent League Page:</label>
+      <input type="checkbox" id="leagueBackgroundToggle" name="leagueBackgroundToggle"><br>
+
+      <label for="garageBackgroundToggle">Use Transparent Garage:</label>
+      <input type="checkbox" id="garageBackgroundToggle" name="garageBackgroundToggle"><br>
+
+      <!-- Image Search Fields -->
+      <label for="imageSearch">Search for an image for League or Garage:</label>
+      <input type="text" id="imageSearch" placeholder="Search for background images..."><br>
+      <button type="button" onclick="searchImages()">Search Unsplash</button>
+
+      <h3>Select an Image</h3>
+      <div id="imageResults"></div>
+      
+      <label for="imageChoice">Choose which section to apply the image to:</label>
+      <select id="imageChoice">
+        <option value="league">League Background</option>
+        <option value="garage">Garage Background</option>
+      </select>
+
+      <button type="button" onclick="generateTheme()">Generate Theme</button>
+    </form>
+
+    <h2>Generated CSS:</h2>
+    <textarea id="generatedCss" rows="10" cols="50" readonly></textarea>
+  </div>
+
+</body>
+</html>
